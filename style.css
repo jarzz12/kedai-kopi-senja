@@ -1,0 +1,804 @@
+:root {
+    --primary: #b6895b;
+    --bg: #010101;
+    --background-card: #1a1a1a;
+    --border-card: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #fff;
+    /* min-height: 5000px; */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: rgba(1, 1, 1, 0.8);
+    border-bottom: 1px solid #a87e54;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    font-style: italic;
+}
+
+.navbar .navbar-logo span {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+    color: #fff;
+    display: inline-block;
+    font-size: 1.4rem;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.3s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+    color: #fff;
+    margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+    color: var(--primary);
+}
+
+#hamburger-menu {
+    display: none;
+}
+
+/* navbar search form */
+
+.navbar .search-form {
+    position: absolute;
+    top: 100%;
+    right: 7%;
+    background-color: #fff;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+
+.navbar .search-form.active {
+    transform: scaleY(1);
+}
+
+.navbar .search-form input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--bg);
+    padding: 1rem;
+}
+
+.navbar .search-form label {
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: var(--bg);
+}
+
+/* shopping card */
+
+#shopping-card-button {
+    position: relative;
+}
+
+#shopping-card-button .quantity-badge {
+    display: inline-block;
+    padding: 1px 5px;
+    background-color: red;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0;
+    right: -10px;
+}
+
+.shopping-card {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    height: 100vh;
+    width: 35rem;
+    padding: 0 1.5rem;
+    background-color: #fff;
+    color: var(--bg);
+    transition: 0.3s;
+}
+
+.shopping-card.active {
+    right: 0;
+}
+
+.shopping-card .card-item {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #333;
+    position: relative;
+}
+
+.shopping-card img {
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.shopping-card h3 {
+    font-size: 1.4rem;
+}
+
+.shopping-card .item-price {
+    font-size: 1.2rem;  
+}
+
+.shopping-card .card-item #add,
+.shopping-card .card-item #remove {
+    display: inline-block;
+    padding: 2px 5px;
+    cursor: pointer;
+    margin: 0 8px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.shopping-card h4 {
+    font-size: 1.6rem;
+    margin-top: -1rem;
+    text-align: center;
+}
+
+
+/* checkout Form */
+
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top:  1px solid dashed black;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.form-container h5 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.form-container form {
+    width: 100%;
+    text-align: center;
+}
+
+.form-container label {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 1rem;
+}
+
+.form-container span {
+    text-align: right;
+}
+
+.form-container input {
+    background-color: #ddd;
+    padding: 5px;
+    font-size: 1rem;
+    width: 70%;
+}
+
+.form-container .checkout-button {
+    padding: 6px 14px;
+    background-color: royalblue;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 20px;
+    margin:  1rem auto;
+    cursor: pointer;
+}
+
+
+/* hero section */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Konten di tengah vertikal */
+    align-items: flex-start; /* Semua konten rata kiri */
+    background-image: url('kopi2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4em;
+    color: #fff; 
+    margin-bottom: 1.5rem;
+    text-align: left; 
+    padding-left: -3%;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    line-height: 4rem;
+}
+
+.hero .content h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 1.4;
+    max-width: 600px;
+    line-height: 1.4;
+    font-weight: 100;
+    text-align: left; /* Pastikan teks paragraf rata kiri */
+    padding-left: 2%;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    mix-blend-mode: difference;
+}
+.cta {
+    padding-left: 2%;
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
+    color: #fff;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+.hero::after {
+    content:'';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(1, 1, 3, 1) 8%, rgba(255, 255, 255, 0) 55%);
+}
+
+.hero .content {
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+}
+
+/* about section */
+
+.about, .menu, .products, .contact
+
+ {
+    padding: 8rem 7% 1.4rem;
+}
+
+.about h2, .menu h2, .products h2, .contact h2
+ {
+text-align: center;
+font-size: 2.6rem;
+margin-bottom: 3rem;
+}
+
+.about h2 span, 
+.menu h2 span,
+.products h2 span,
+.contact h2 span 
+{
+color: var(--primary);
+}
+
+.about .row {
+    gap: 3rem;
+    display: flex;
+}
+
+
+
+.about .row .about-img {
+    flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+    width: 100%;
+}
+
+.about .row .content {
+    flex: 1  1 35rem;
+    /* padding: 0 1rem; */
+}
+
+.about .row .content h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.about .row .content p {
+   margin-bottom: 0.8rem;
+   font-size: 1.3rem;
+   font-weight: 100;
+   line-height: 1.6; 
+}
+
+/* Menu section */
+
+.menu h2, .products h1, .contact h2 {
+    margin-bottom: 1rem;
+}
+
+.menu p, .products p, .contact p {
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+}
+
+.menu .row {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* flex-wrap: wrap; */
+    margin-top: 5rem;
+    /* justify-content: center; */
+    gap: 2rem;
+}
+
+.menu .menu-card-img {
+    flex: 1 1 45rem;
+}
+
+.menu .row .menu-card {
+    text-align: center;
+    padding: 1.5rem;
+    border: .1rem solid var(--border-card);
+    background: var(--background-card);
+    border-radius: 3rem;
+}
+
+.menu .row .menu-card img {
+   width: 50%;
+    border-radius: 50%;
+}
+
+.menu .row .menu-card .menu-card-title {
+    margin: 1.5rem auto 1rem;
+}
+
+/* product section */
+
+.products .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mengatur agar produk responsif */
+    gap: 2rem;
+}
+
+.products .product-card {
+    text-align: center;
+    border: 1px solid #666;
+    padding: 2rem;
+}
+
+.products .product-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.products .product-icons a {
+    width: 4rem;
+    height: 4rem;
+    color: #fff;
+    margin: 0.3rem;
+    border: 1px solid #666;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products .product-icons a:hover {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.products .product-image {
+    padding: 1rem 0;
+}
+
+.products .product-image img {
+    width: 100%;
+    height: 350px; /* Atur tinggi gambar */
+    object-fit: cover; /* Agar gambar tidak terdistorsi */
+    border-radius: 10px;
+}
+
+.products .product-content h3 {
+    font-size: 2rem;
+}
+
+.products .product-stars {
+    font-size: 1.7rem;
+    padding: 0.8rem;
+    color: var(--primary);
+}
+
+.products .product-stars .star-full {
+    fill: var(--primary);
+}
+
+.products .product-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+/* contact section */
+
+.contact .row {
+    display: flex;
+    flex-wrap: wrap; 
+    margin-top: 2rem;
+    background-color: #222;
+}
+
+.contact .row .map {
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.contact .row form {
+    flex: 1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+.contact .row .form {
+    gap: 2rem;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+.contact .row form .input-group {
+    display: flex;
+    text-align: center;
+    /* margin-top: 2rem; */
+    background-color: var(--bg);
+    border: 1px solid #eee;
+    /* padding-left: 2rem; */
+   
+}
+.contact .row form .input-group .icon{
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.contact .row form .input-group input {
+    width: 100%;
+    flex: 1;
+    padding: 2rem;
+    font-size: 1.7rem;
+   
+}
+
+.contact .row form .input-group textarea {
+    width: 100%;
+    margin-top: 0.5rem; 
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.contact .row form button {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact .row form button:hover {
+    background-color: #a87e54;
+}
+
+/* footer */
+footer {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0 2.8rem;
+    margin-top: 3rem;
+}
+
+footer .socials {
+    padding: 1rem 0;
+}
+
+footer .socials a{
+    color: #fff;
+    margin: 1rem;
+}
+
+footer .socials a:hover,
+footer .links a:hover {
+    color: var(--bg);
+}
+
+footer .links {
+    margin-bottom: 1.4rem;
+}
+
+footer .links a {
+    color: #fff;
+    padding: 0.7rem 1rem;
+}
+
+footer .credit {
+    font-size: 0.9rem;
+}
+
+footer .credit a{
+    color: var(--bg);
+    font-weight: 700;
+}
+
+/* modal box */
+/* item detail */
+
+/* Modal Box */
+.modal {
+    display: none;
+    justify-content: center; /* Konten berada di tengah layar */
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Overlay transparan */
+    overflow: hidden; /* Cegah scroll */
+}
+
+.modal-container {
+    background-color: #fefefe;
+    color: var(--bg);
+    margin: auto;
+    padding: 2rem;
+    border-radius: 0.5rem; /* Membulatkan sudut modal */
+    border: 1px solid #666;
+    max-width: 80%;
+    width: 500px;
+    position: relative;
+    animation: animateModal 0.5s;
+}
+
+/* modalanimation */
+
+@keyframes animateModal {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.close-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column; /* Responsif untuk perangkat kecil */
+    align-items: flex-start;
+}
+
+.modal-content img {
+    width: 100%; /* Gambar sesuai lebar modal */
+    max-height: 300px; /* Batasi tinggi gambar */
+    object-fit: cover; /* Gambar tidak terdistorsi */
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin-top: 1.2rem;
+}
+
+.modal-content a {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #fff;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content a:hover {
+    background-color: #a87e54;
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+    .modal-container {
+        width: 90%; /* Lebar modal menyesuaikan perangkat kecil */
+        max-width: none;
+    }
+
+    .modal-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* Media Queries */
+
+/* Laptop */
+@media (max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+
+    .hero {
+        padding-left: 0%; /* Sesuaikan jarak dari tepi pada laptop */
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+        text-align: left;
+    }
+
+    .hero {
+        padding-left: 5%; /* Sesuaikan jarak dari tepi pada tablet */
+    }
+
+    .navbar .search-form {
+        width: 90%;
+        right: 2rem;
+    }
+
+    .about .row {
+        flex-wrap: wrap;
+    }
+
+    .about .row .about-img img {
+        height: 24rem;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .about .row .content {
+        padding: 0;
+    }
+
+    .about .row .content h3 {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .about .row .content p {
+        font-size: 1.6rem;
+    }
+
+    .menu p {
+        font-size: 1.3rem;
+    }
+
+    .modal-content {
+        flex-wrap: wrap;
+    }
+}
+
+/* Mobile */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+
+    .navbar .navbar-logo {
+        font-size: 1.6rem;
+    }
+
+    .hero {
+        padding-left: 5%; /* Sesuaikan jarak dari tepi pada perangkat kecil */
+    }
+}
